@@ -32,7 +32,7 @@
     * b. Recommendations/Next Steps
 
 # Business Understanding
-The business stakeholder is a healthcare insurance company trying to predict individuals who received H1N1 vaccines so they can send them an additional survey and request medical records to acquire more information/knowledge. My project takes survey data about H1N1 vaccines using information they shared about their backgrounds, opinions, and health behaviors. The model aims to predict whether someone received the H1N1 vaccine or not. The importance of the model revolves around the costs associated with false positives and false negatives. The false positive would be predicting someone did receive the H1N1 vaccine when they didn’t (cost related to sending the survey to the wrong person). The false negative would be predicting someone didn't receive the H1N1 vaccine when they did (missed opportunity). I will find an appropriate trade-off between our two costs, focusing on minimizing missed opportunities. The company can use the additional information gained to help make better business decisions on their insurance policies, leading to more growth for the company. My analysis will use the CRISP-DM (Cross-industry standard process for data mining) methodology.
+The business stakeholder is a healthcare insurance company trying to predict individuals who received H1N1 vaccines so they can send them an additional survey and request medical records to acquire more information/knowledge. The company can use the additional information gained to help make better business decisions on their insurance policies, leading to more growth for the company. My project takes survey data about H1N1 vaccines using information they shared about their backgrounds, opinions, and health behaviors. The model aims to predict whether someone received the H1N1 vaccine or not. The importance of the model revolves around the costs associated with false positives and false negatives. The false positive would be predicting someone did receive the H1N1 vaccine when they didn’t (cost related to sending the survey to the wrong person). The false negative would be predicting someone didn't receive the H1N1 vaccine when they did (missed opportunity). I will find an appropriate trade-off between our two costs, focusing on minimizing missed opportunities. My analysis will use the CRISP-DM (Cross-industry standard process for data mining) methodology.
 
 # Data Understanding
 I am working with the National 2009 H1N1 Flu Survey dataset for this project. “In late 2009 and early 2010, the United States conducted the National 2009 H1N1 Flu Survey. This phone survey asked respondents whether they had received the H1N1 and seasonal flu vaccines, in conjunction with questions about themselves. These additional questions covered their social, economic, and demographic background, opinions on risks of illness and vaccine effectiveness, and behaviors towards mitigating transmission.” The dataset contains over 26,000 rows and 38 columns. It is important to note that this is survey data, which, in general, has many limitations and biases. I will discuss these in more detail in the limitations section at the end of the notebook. Below is a link to the dataset and information on each feature.
@@ -59,7 +59,19 @@ As mentioned, my EDA will focus on the three most significant coefficient estima
 # Model
 In the modeling section of my notebook, I will split the dataset into three groups (train, valid, and holdout). The purpose is to demonstrate if our model is generalizable or not. This is a crucial step because if our model cannot perform similarly on both training data and unseen data, it will defeat the purpose of the model/project (the model has no value to the company). After that, I will encode the categorical columns in the vaccine dataframe to convert their values to binary. Otherwise, our models will not produce any results.
 
-After that, I assessed the performance of three different binary classification models on the training data. The logistic regression model demonstrated the best fit, so I continued with that model. I then hyperparameter-tuned the logistic regression model with the training and validation data. I used a grid search to help give guidance/suggestions into what parameters were best. From there, I concluded my final model and ran the holdout data to confirm the model was performing similarly on the training data, validation data, and holdout data. After I confirmed it was, I adjusted the decision threshold in favor of recall to create the best-performing model for my business problem.
+After that, I assessed the performance of three different binary classification models on the training data. The logistic regression model demonstrated the best fit, so I continued with that model. I then hyperparameter-tuned the logistic regression model with the training and validation data. I used a grid search to help give guidance/suggestions into what parameters were best. From there, I concluded my final model, Logistic Regression, and ran the holdout data to confirm the model was performing similarly on the training data, validation data, and holdout data. After I confirmed it was, I adjusted the decision threshold in favor of recall to create the best-performing model for my business problem.
+
+* Scenarios with different decision thresholds to show stakeholders
+
+    * Decision threshold 0.5: recall = ~72%, ~18% FP, cost = $1,800
+
+    * **Decision threshold 0.4: recall = ~81%, ~30% FP, cost = $3,000** *
+
+    * Decision threshold 0.3: recall = ~91%, ~48% FP, cost = $4,800
+    
+* **Final Model: Logistic Regression (max_iter=100, random_state=42,class_weight='balanced', C=.006,solver='liblinear') with decision threshold of 0.4**
+![con_matrix.png](./images/con_matrix.png)
+
 
 # Conclusion
 My Exploratory Data Analysis presents the relationship between three features with high coefficient estimates with the target variable, H1N1 vaccines. Additional information on these features should be included in the follow-up survey. My model uses the information from all the features to help predict who received H1N1 vaccines, focusing on minimizing missed opportunity costs. The additional information gained from the follow-up survey and potential medical records would improve the insurance company’s knowledge, leading to better business decisions on their insurance policies. This will lead to more overall growth for the company. Given these findings and data enrichment in the future, I can build on my model recommendation and know where to proceed next.
@@ -78,7 +90,7 @@ For the follow-up survey, I recommend acquiring more data on health insurance, e
 * 4. Health Insurance
 * 5. Employment Information
 * 6. Medical Records
-* 7. Logistic Regression Model with 0.4 threshold
+* 7. Logistic Regression Model with 0.4 threshold, ~81% recall
 
 ## For More Information
 
