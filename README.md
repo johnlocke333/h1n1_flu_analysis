@@ -59,17 +59,18 @@ As mentioned, my EDA will focus on the three most significant coefficient estima
 # Model
 In the modeling section of my notebook, I will split the dataset into three groups (train, valid, and holdout). The purpose is to demonstrate if our model is generalizable or not. This is a crucial step because if our model cannot perform similarly on both training data and unseen data, it will defeat the purpose of the model/project (the model has no value to the company). After that, I will encode the categorical columns in the vaccine dataframe to convert their values to binary. Otherwise, our models will not produce any results.
 
-After that, I assessed the performance of three different binary classification models on the training data. The logistic regression model demonstrated the best fit, so I continued with that model. I then hyperparameter-tuned the logistic regression model with the training and validation data. I used a grid search to help give guidance/suggestions into what parameters were best. From there, I concluded my final model, Logistic Regression, and ran the holdout data to confirm the model was performing similarly on the training data, validation data, and holdout data. After I confirmed it was, I adjusted the decision threshold in favor of recall to create the best-performing model for my business problem.
+After that, I assessed the performance of three different binary classification models on the training data. The logistic regression model demonstrated the best fit, so I continued with that model. I then hyperparameter-tuned the logistic regression model with the training and validation data. I used a grid search to help give guidance/suggestions into what parameters were best. From there, I concluded my final model, Logistic Regression, and ran the holdout data to confirm the model was performing similarly on the training data, validation data, and holdout data. After I confirmed it was, I adjusted the decision threshold in favor of recall to create three scenarios so the stakeholders can decide the cost trade-off that suits their business the best. 
 
 * Scenarios with different decision thresholds to show stakeholders
 
     * Decision threshold 0.5: recall = ~72%, ~18% FP, cost = $1,800
 
-    * **Decision threshold 0.4: recall = ~81%, ~30% FP, cost = $3,000** *
+    * Decision threshold 0.4: recall = ~81%, ~30% FP, cost = $3,000 *
 
     * Decision threshold 0.3: recall = ~91%, ~48% FP, cost = $4,800
     
-* **Final Model: Logistic Regression (max_iter=100, random_state=42,class_weight='balanced', C=.006,solver='liblinear') with decision threshold of 0.4**
+* **Final Model: Logistic Regression (max_iter=100, random_state=42,class_weight='balanced', C=.006,solver='liblinear')
+
 ![con_matrix.png](./images/con_matrix.png)
 
 
@@ -82,7 +83,7 @@ At this stage, the data is limited, which is why the company wants to conduct ad
 Additionally, survey data can be biased, inaccurate, and unreliable. Some people might not answer the survey truthfully because of outside factors, which could skew the results of any model I create. The company is also looking to acquire medical records to reduce this limitation.
 
 ## Recommendations/Next Steps
-For the follow-up survey, I recommend acquiring more data on health insurance, employment, and the three features I explored in the EDA. I also recommend using the logistic regression model with a decision threshold of 0.4; this threshold offers the best cost trade-off between missed opportunity costs and the cost of sending the survey to the wrong individual. I want to reduce the information limitation by acquiring more data through the follow-up survey. I also want to obtain medical records to reduce the limitations of biased/unreliable survey data. The additional information should help me create a more reliable model in the future, leading to more knowledge and overall growth for the company.
+For the follow-up survey, I recommend acquiring more data on health insurance, employment, and the three features I explored in the EDA. I also recommend using the logistic regression model. I give the stakeholders three different threshold options to decide the best cost trade-off between missed opportunity costs and the cost of sending the survey to the wrong individual. I want to reduce the information limitation by acquiring more data through the follow-up survey. I also want to obtain medical records to reduce the limitations of biased/unreliable survey data. The additional information should help me create a more reliable model in the future, leading to more knowledge and overall growth for the company. 
 
 * 1. Doctor Recommendation
 * 2. Health Worker
@@ -90,7 +91,8 @@ For the follow-up survey, I recommend acquiring more data on health insurance, e
 * 4. Health Insurance
 * 5. Employment Information
 * 6. Medical Records
-* 7. Logistic Regression Model with 0.4 threshold, ~81% recall
+* 7. Logistic Regression Model
+* 8. Decide Cost Trade-off
 
 ## For More Information
 
