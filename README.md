@@ -50,11 +50,11 @@ Citation/Data: https://www.drivendata.org/competitions/66/flu-shot-learning/page
 As mentioned, my EDA will focus on the three most significant coefficient estimates, which had some of the largest impacts on our model. I will explore their relationships to our target variable, the H1N1 vaccine. This will help me understand patterns and trends within our dataset.
 
 ### H1N1 vs. Doctor Recommendation
-![doc_rec.jpeg](./images/doc_rec.jpeg)
+![doc_reco.jpeg](./images/doc_reco.jpeg)
 ### H1N1 vs. Health Worker
-![health_worker.jpeg](./images/health_worker.jpeg)
+![health_workero.jpeg](./images/health_workero.jpeg)
 ### H1N1 vs. Opinion on Risk
-![risk.jpeg](./images/risk.jpeg)
+![risko.jpeg](./images/risko.jpeg)
 
 # Model
 In the modeling section of my notebook, I will split the dataset into three groups (train, valid, and holdout). The purpose is to demonstrate if our model is generalizable or not. This is a crucial step because if our model cannot perform similarly on both training data and unseen data, it will defeat the purpose of the model/project (the model has no value to the company). After that, I will encode the categorical columns in the vaccine dataframe to convert their values to binary. Otherwise, our models will not produce any results.
