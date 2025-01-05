@@ -71,7 +71,7 @@ After that, I assessed the performance of three different binary classification 
     
 * **Final Model: Logistic Regression (max_iter=100, random_state=42,class_weight='balanced', C=.006,solver='liblinear')
 
-![con_matrix.png](./images/con_matrix.png)
+![con_matrix.jpeg](./images/con_matrix.jpeg)
 
 
 # Conclusion
@@ -111,3 +111,12 @@ For additional info, contact Jack Locke at [jackdlocke@gmail.com](mailto:jackdlo
 ```
 ## Citations
 
+* 1: https://www.drivendata.org/competitions/66/flu-shot-learning/page/210/
+* 2: https://stackoverflow.com/questions/57924484/finding-coefficients-for-logistic-regression
+* 3: https://www.geeksforgeeks.org/ml-one-hot-encoding/
+* 4: https://scikit-learn.org/1.5/modules/cross_validation.html
+* 5: https://scikit-learn.org/1.5/modules/generated/sklearn.metrics.f1_score.html
+* 6: https://scikit-learn.org/1.5/modules/generated/sklearn.metrics.recall_score.html
+* 7: https://scikit-learn.org/1.5/modules/generated/sklearn.ensemble.RandomForestClassifier.html
+* 8: https://scikit-learn.org/1.5/modules/generated/sklearn.model_selection.GridSearchCV.html
+* 9: https://www.geeksforgeeks.org/what-is-the-default-threshold-in-sklearn-logistic-regression/
