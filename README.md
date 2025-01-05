@@ -65,7 +65,7 @@ After that, I assessed the performance of three different binary classification 
 
     * Decision threshold 0.5: recall = ~72%, ~18% FP, cost = $1,800
 
-    * Decision threshold 0.4: recall = ~81%, ~30% FP, cost = $3,000 *
+    * Decision threshold 0.4: recall = ~81%, ~30% FP, cost = $3,000 
 
     * Decision threshold 0.3: recall = ~91%, ~48% FP, cost = $4,800
     
