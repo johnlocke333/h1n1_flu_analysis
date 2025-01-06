@@ -27,7 +27,11 @@
     * f. Final Model
     * g. Adjusting Decision Threshold
         * Different Decision Thresholds
-6. Conclusions
+6. Evaluation
+    * a. Final Model
+    * b. Adjusting Decision Threshold
+        * Different Decision Thresholds
+7. Conclusions
     * a. Limitations
     * b. Recommendations/Next Steps
 
@@ -59,7 +63,14 @@ As mentioned, my EDA will focus on the three most significant coefficient estima
 # Model
 In the modeling section of my notebook, I will split the dataset into three groups (train, valid, and holdout). The purpose is to demonstrate if our model is generalizable or not. This is a crucial step because if our model cannot perform similarly on both training data and unseen data, it will defeat the purpose of the model/project (the model has no value to the company). After that, I will encode the categorical columns in the vaccine dataframe to convert their values to binary. Otherwise, our models will not produce any results.
 
-After that, I assessed the performance of three different binary classification models on the training data. The logistic regression model demonstrated the best fit, so I continued with that model. I then hyperparameter-tuned the logistic regression model with the training and validation data. I used a grid search to help give guidance/suggestions into what parameters were best. From there, I concluded my final model, Logistic Regression, and ran the holdout data to confirm the model was performing similarly on the training data, validation data, and holdout data. After I confirmed it was, I adjusted the decision threshold in favor of recall to create three scenarios so the stakeholders can decide the cost trade-off that suits their business the best. 
+I am trying to assess two categories, therefore, I am going to be using a binary classification model. After that, I assessed the performance of three different binary classification models on the training data. The logistic regression model demonstrated the best fit, so I continued with that model. I then hyperparameter-tuned the logistic regression model with the training and validation data. I used a grid search to help give guidance/suggestions into what parameters were best. From there, I concluded my final model, Logistic Regression, and ran the holdout data to confirm the model was performing similarly on the training data, validation data, and holdout data. After I confirmed it was, I adjusted the decision threshold in favor of recall to create three scenarios so the stakeholders can decide the cost trade-off that suits their business the best. 
+
+# Evaluation
+For my model evaluation, I was able to get a recall score of roughly 72%, meaning, 72% of the time I was able to correctly identify when someone received the H1N1 vaccine.
+
+* **Final Model: Logistic Regression (max_iter=100, random_state=42,class_weight='balanced', C=.006,solver='liblinear')
+
+![con_matrix.jpeg](./images/con_matrix.jpeg)
 
 * Scenarios with different decision thresholds to show stakeholders
 
@@ -68,10 +79,6 @@ After that, I assessed the performance of three different binary classification 
     * Decision threshold 0.4: recall = ~81%, ~30% FP, cost = $3,000 
 
     * Decision threshold 0.3: recall = ~91%, ~48% FP, cost = $4,800
-    
-* **Final Model: Logistic Regression (max_iter=100, random_state=42,class_weight='balanced', C=.006,solver='liblinear')
-
-![con_matrix.jpeg](./images/con_matrix.jpeg)
 
 
 # Conclusion
